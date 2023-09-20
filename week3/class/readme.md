@@ -11,3 +11,8 @@
 ### 실행결과
 ![image](https://github.com/wini66/game/assets/119557644/67e11c05-c584-4296-9af1-e43a5aa6592a)
 
+## 수직 슬라이드바 표시 프로그램
+### 실행결과
+![image](https://github.com/wini66/game/assets/119557644/8668c9b2-a02e-44fc-ae19-c0c6238e10be)
+
+
