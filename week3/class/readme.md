@@ -22,6 +22,10 @@
 ### 실행결과
 ![image](https://github.com/wini66/game/assets/119557644/8668c9b2-a02e-44fc-ae19-c0c6238e10be)
 
+## 수직 슬라이드바 표시 프로그램(수정된 프로그램)
+### 실행결과
+![image](https://github.com/wini66/game/assets/119557644/721ea48b-f13f-4013-b75d-7eff501d8a20)
+
 ## 디지털 숫자 출력 프로그램
 ### 실행결과
 ![image](https://github.com/wini66/game/assets/119557644/e5e82bd8-3a7c-459a-9a47-847991e0c29b)
