@@ -35,15 +35,15 @@ int main(void )
 	
 	int playerLevel = 1;  // 플레이어 레벨
 	
-    int count=0, rnd;
+    int count=0, rnd;// 시도 횟수와 랜덤 숫자 변수
 
-    int r_count=0;
+    int r_count=0; // 성공 횟수 변수
     
     char ch;
 	
     char *target="□";
     
-    srand((unsigned int)time(NULL));
+    srand((unsigned int)time(NULL));// 랜덤 시드 초기화
 
     intro_game();
      
@@ -57,10 +57,11 @@ int main(void )
         system("cls");
 		
         draw_rectangle(20, 20);
+         // 직사각형 그리기 함수 호출
 
         rnd=rand()%15+4;
-        	//0부터 14까지의 난수를 생성한 후에 4를 더하여 최종적으로 4부터 18까지의 값을 반환합니다.
-
+        	//0부터 14까지의 난수를 생성한 후에 4를 더하여 최종적으로 4부터 18까지의 값을 반환
+			//랜덤한 위치에 목표물 출력
         gotoxy(rnd, 2);
 
         printf("%s", target);
@@ -116,7 +117,7 @@ void intro_game(void )
 
 }
 
-//플레이어의 위치를 좌우로 이동시키는 함수
+//플레이어의 위치를좌우로이동시키는함수
 
 void horizontal_slide(int x, int y, char c2[])
 
@@ -128,7 +129,7 @@ void horizontal_slide(int x, int y, char c2[])
 
     Sleep(50);
 
-    printf("\b ");
+    printf("\b ");// 일정 시간 대기 후에 화면 지우기
 
 }
 
@@ -252,6 +253,8 @@ void game_control(int *r_c, int rnd, int *pla)
         horizontal_slide(i/1, 21, horse);//
 
     }while(!_kbhit());
+    
+    // 스페이스바 입력 받기
 
     chr=_getch();
 
@@ -260,7 +263,7 @@ void game_control(int *r_c, int rnd, int *pla)
     if(chr==32)
 
     {
-
+		// 화살 발사 애니메이션
         while(y>2)
 
         {
@@ -280,10 +283,17 @@ void game_control(int *r_c, int rnd, int *pla)
         if((i>=rnd-2) && (i<=rnd))
 
         {
-
+			// 명중 메시지 출력 및 성공 횟수 증가
             gotoxy(rnd, 2);
 
             printf("☆");
+            
+            gotoxy(rnd - 2, 3);
+
+                       printf("!!펑!!");
+            int sound = calc_frequency(4, 0);
+
+                       Beep(sound, 2000); //명중 시 효과음  
 
             gotoxy(46, 10);
 
@@ -292,7 +302,7 @@ void game_control(int *r_c, int rnd, int *pla)
             Sleep(50);
 
             *r_c=*r_c+1;
-            
+            // 성공 횟수가 3의 배수일 때 플레이어 레벨 증가
             if (*r_c % 3==0) {
                 *pla=*pla+1;
                            //
@@ -329,7 +339,32 @@ void gotoxy(int x, int y)
 
     COORD Pos = { x-1, y-1 };
 
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);// 커서 위치 이동 
 
 }
 
+int calc_frequency(int octave, int inx)
+
+{
+
+        double do_scale = 32.7032;
+
+        double ratio = pow(2., 1 / 12.), temp;
+
+        int i;
+
+        temp = do_scale*pow(2, octave - 1);
+
+        for (i = 0; i < inx; i++)
+
+        {
+
+               temp = (int)(temp + 0.5);
+
+               temp *= ratio;
+
+        }
+
+        return (int)temp;
+
+}
