@@ -116,7 +116,7 @@ void intro_game(void )
 
 }
 
-//로켓의위치를좌우로이동시키는함수
+//플레이어의 위치를 좌우로 이동시키는 함수
 
 void horizontal_slide(int x, int y, char c2[])
 
