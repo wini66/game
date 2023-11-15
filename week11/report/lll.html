@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: black;
+            color: darkturquoise;
+            text-align: center;
+            font-size: 40px;
+            padding-top: 30vh;
+            font-family: Consolas, monospace;
+        }
+    </style>
+</head>
+
+<body onclick="playSound()">
+    <h1>Game over</h1>
+    <audio id="backgroundMusic">
+        <source src="7.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        function playSound() {
+            var Music = new Audio("7.mp3");
+            Music.play();
+        }
+    </script>
+</body>
+
+</html>
