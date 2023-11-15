@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End</title>
+</head>
+<style>
+body {
+    background: #000000;
+}    
+
+#wrapper {
+    width: 700px;
+    height: 500px;
+    border: 5px solid yellow;
+    margin: auto;
+    text-align: center;
+} 
+
+#wrapper h1 {
+    text-align: center;
+    color: darkturquoise; /* h1의 색상을 p의 색상으로 변경 */
+    font-weight: bold;
+    font-size: 90px;
+    display: none;
+}
+
+#container {
+    height: 120px;
+}
+
+#wrapper p {
+    text-align: center;
+    color: #FFFFFF; /* p의 색상을 h1의 색상으로 변경 */
+    font-weight: bold;
+    font-size: 35px;
+    display: none;
+    margin-top: 20px; /* 더 아래에 그려지도록 여백 추가 */
+}
+
+#wrapper button {
+    padding: 10px;
+}
+
+#descriptionText {
+    text-align: center;
+    color: darkturquoise;
+    font-weight: bold;
+    font-size: 15px;
+    display: none;
+}
+</style>
+
+<audio id="backgroundMusic" loop>
+    <source src="ll3.mp3" type="audio/mp3">
+    브라우저가 오디오 태그를 지원하지 않습니다.
+</audio>
+
+<script>
+var flag = true;
+
+function init() {
+    
+    // 페이지 로드 시 노래 자동 재생
+    var backgroundMusic = document.getElementById("backgroundMusic");
+    document.addEventListener("click", function() {
+        backgroundMusic.play();
+    });
+}
+
+// 깜빡거리는 효과
+function blink() {
+    var vision = (flag) ? "none" : "block";
+    document.querySelector("#wrapper h1").style.display = vision;
+    document.querySelector("#wrapper p").style.display = "block";
+    flag = !flag;
+}
+
+window.addEventListener("load", function() {
+    init();
+    setInterval(blink, 500);
+});
+</script>
+<body>
+<div id="wrapper">
+    
+    <div id="container">   
+        
+        <p>Cleared the game by reaching 1500 points.</p>
+        <h1>clear!</h1>
+    </div>
+    
+</div>
+</body>
+</html>
+
